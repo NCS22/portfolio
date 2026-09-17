@@ -292,6 +292,7 @@
     font-size: 0.80rem;
     cursor: not-allowed;
     opacity: 70%;
+    pointer-events: none;
 }
 
 @media (max-width: 900px) {
