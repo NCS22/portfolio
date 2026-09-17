@@ -28,7 +28,7 @@
     "id": "que-pokemon-eres",
     "featured": false,
     "title": "¿Qué Pokémon Eres?",
-    "tagline": "Quiz de personalidad con modelo kNN entrenado en Python e inferencia en tiempo real sobre el navegador para saber qué Pokémon de primera generación eres",
+    "tagline": "Pokémon Quiz nació como un proyecto personal para aprender React y Tailwind mientras experimentaba con mi primer modelo de IA. El principal reto no fue únicamente desarrollar el quiz, sino determinar qué preguntas y características podían establecer una relación coherente entre el caracter de una persona y un Pokémon. Junto con la IA, diseñé y refiné 12 preguntas basadas en cinco criterios: asertividad, curiosidad, sociabilidad, resiliencia y energía. Tras realizar diferentes pruebas, esta combinación ofreció el mejor equilibrio entre los rasgos de personalidad, los tipos y las estadísticas de cada Pokémon. El resultado es una experiencia interactiva que combina desarrollo frontend y clasificación mediante IA usando un modelo kNN para escoger al pokemon más cercano al resultado.",
     "stack": ["React", "JSON", "JavaScript", "Python", "Tailwind CSS", "Machine Learning (kNN)", "API"],
     "links": { "repo": "https://github.com/NCS22/Pokemon-Quiz", "web": "https://pokemon-quiz-opal-xi.vercel.app/" }, 
     "img": "pokemon-image.jpg"

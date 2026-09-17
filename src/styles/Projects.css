@@ -115,6 +115,11 @@
     color: var(--color-text-secondary);
     font-family: var(--font-mono);
     font-size: 0.8rem; 
+    transition: color .2s ease; 
+
+    &:hover {
+        color: var(--color-text-primary);
+    }
 }
 
 .project-btn-primary, 
@@ -253,7 +258,7 @@
     grid-area: content; 
     display: flex;
     flex-direction: column;
-    gap: 12px; 
+    gap: 20px; 
     justify-content: space-between;
 }
 
