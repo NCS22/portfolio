@@ -1,0 +1,311 @@
+.projects {
+    background-color: var(--color-bg-alt);
+    min-height: 400px;
+    padding: 48px;
+
+    & > h2 {
+        font-family: var(--font-display-bold);
+        font-size: 3rem; 
+        color: var(--color-text-primary); 
+    }
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 12px; 
+}
+
+.petcare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "content image";
+    gap: 48px; 
+    align-items: center;
+    padding: 32px;
+}
+
+.petcare-content {
+    grid-area: content;
+}
+
+.petcare-label {
+    font-family: var(--font-mono);
+    font-size: 0.8em; 
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+}
+
+.petcare-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem; 
+    color: var(--color-text-primary); 
+    margin: 8px 0; 
+}
+
+.petcare-tagline {
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: 8px;
+}
+
+.petcare-block {
+    margin-bottom: 20px;
+
+    & > h4 {
+        font-family: var(--font-body);
+        font-weight: 500;
+        color: var(--color-text-primary);
+        margin-bottom: 8px;
+    }
+
+    ul {
+        margin-left: 24px;
+        list-style: circle;
+    }
+
+    p, li {
+        margin-left: 24px;
+        color: var(--color-text-secondary); 
+        font-family: var(--font-body);
+        line-height: 1.6;
+    }
+}
+
+.petcare-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; 
+    margin: 24px 0; 
+}
+
+.project-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7em;
+    background-color: var(--color-accent-secondary);
+    color: var(--color-text-primary); 
+    padding: 8px 16px; 
+    border-radius: 20px;
+    border: 2px solid var(--color-accent-secondary-hover); 
+}
+
+.project-link {
+    a {
+        text-decoration: none;
+    }
+}
+
+.petcare-btn-primary {
+    position: relative; 
+    z-index: 1; 
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 12px 24px;
+    margin-bottom: 8px;
+    border: 1px solid var(--color-btn-primary-bg); 
+    border-radius: 5px;
+    font-family: var(--font-mono);
+    background-color: transparent;
+    color: var(--color-text-primary); 
+    font-size: 0.80rem;
+    cursor: pointer;
+    transition: color 0.4s ease; 
+
+    &::before {
+        content: ''; 
+        position: absolute;
+        inset: 0;
+        background-color: var(--color-btn-primary-bg);
+        z-index: -1; 
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1); 
+    }
+
+    &:hover {
+        color: var(--color-btn-primary-text); 
+    }
+
+    &:hover::before, &:focus::before {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+/* Contenedor externo que posiciona los botones y los puntos */
+.petcare-carousel-wrapper {
+    grid-area: image; 
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Ajusta según el diseño de tu app */
+    margin: 0 auto;
+}
+
+.petcare-slider-container {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.petcare-slider-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+}
+
+.petcare-slider-item {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+    height: auto;
+}
+
+
+.petcare-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--color-text-primary);
+    opacity: 70%;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: opacity 0.3s;
+}
+
+.petcare-nav-btn:hover {
+    opacity: 100%;
+}
+
+.petcare-nav-btn.prev { left: 8px; }
+.petcare-nav-btn.next { right: 8px; }
+
+.petcare-dots {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.petcare-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: gray;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.petcare-dot.active {
+    background: var(--color-accent);
+    transform: scale(1.2);
+}
+
+.project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "content image";
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border); 
+    gap: 20px; 
+    border-radius: 12px; 
+    padding: 24px; 
+    transition: border-color 0.2s ease;
+
+    &:hover {
+        border-color: var(--color-accent)
+    }
+    
+}
+
+.project-card-left {
+    grid-area: content; 
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+    justify-content: space-between;
+}
+
+.project-card-content,
+.project-card-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+}
+
+.project-card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem; 
+    color:var(--color-text-primary)
+}
+
+.project-card-tagline {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    font-family: var(--font-body);
+}
+
+.project-card-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; 
+    margin-bottom: 8px;
+}
+
+.project-card-img {
+    justify-self: end;
+    grid-area: image; 
+    width: 100%;
+    max-width: 400px;
+    min-width: 0; 
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px var(--color-bg-alt);
+}
+
+.petcare-btn-not {
+    position: relative; 
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 12px 24px;
+    margin-bottom: 8px;
+    border: 1px solid var(--color-text-secondary); 
+    border-radius: 5px;
+    font-family: var(--font-mono);
+    background-color: gray;
+    color: var(--color-text-secondary); 
+    color: var(--color-text-primary); 
+    font-size: 0.80rem;
+    cursor: not-allowed;
+    opacity: 70%;
+}
+
+@media (max-width: 900px) {
+    .petcare {
+        grid-template-columns: 1fr;
+        grid-template-areas: "content" "image";
+        align-items: center;
+        gap: 24px; 
+    }
+
+    .project-card {
+        grid-template-columns: 1fr;
+        grid-template-areas: "content" "image";
+        align-items: center;
+        gap: 16px; 
+    }
+}

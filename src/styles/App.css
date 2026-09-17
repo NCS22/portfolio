@@ -1,0 +1,9 @@
+.page-top {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+nav {
+  flex-shrink: 0; 
+}

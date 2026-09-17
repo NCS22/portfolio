@@ -1,0 +1,37 @@
+{
+    "work": [
+        {
+            "id": "crossvale", 
+            "company": "Crossvale S.L.", 
+            "position": "IT Trainee",
+            "period": "Octubre 2025 - Enero 2026",  
+            "description": "Crossvale fue la empresa en la que hice mis prácticas universitarias. De el tiempo que estuve con ellos quiero dedicar 3 aprendizajes importantes, y que me han servido a la hora de seguir formándome en el desarrollo y a mejorar mis habilidades en el sector. Lo primero y más importante que aprendí con ellos fue conocimiento real del sector: 0 conocimiento ideal ni vacío que jamás aplicaría, aquí vi de cerca cómo se despliegan aplicaciones, cómo se gestionan y los problemas que existen al usar servidores reales. El segundo conocimiento tiene que ver con las herramientas aplicadas y los lenguajes usados. Me alejé de crear proyectos 'uni-lenguaje' con herramientas obsoletas para poder crear con mis propias manos automatizaciones y procesos con varios lenguajes según requería y con herramientas modernas y más visuales como Grafana, Prometheus y ArgosCD. El último conocimiento que quiero destacar es aprender a trabajar con un equipo grande, gestionando múltiples encargos, con comunicación vertical y horizontal haciendo uso de Jira y tickets como herramientas de soporte para gestionar el trabajo individual y colectivo, maximizando así valor de las tareas."
+        }, {
+            "id": "cmu", 
+            "company": "CMU Santa María de Europa", 
+            "position": "Jefe de Estudios",
+            "period": "Septiembre 2025 - Junio 2026",  
+            "description": "Como Jefe de Estudios en un Colegio Mayor se adquieren ciertas habilidades pasivas y sociales que no puedo obviar en mi desarrollo personal y profesional. Como Jefe de Estudios aprendí a escuchar activamente a las personas, a mediar entre conflictos, a gestionar mi tiempo y a determinar las mejores decisiones según el momento. Entre las actividades más destacables de mi posición está la organización de un viaje colegial a Oporto, en el que es fundamental tener un control absoluto de los más de 100 estudiantes que uno tiene a su cargo; también participé en un comité de convivencia dentro del Colegio Mayor, donde era indispensable escuchar y atender con precaución a las partes de un conflicto; y, por supuesto, todas estas actividades se realizaban en grupo, donde es fundamental generar un buen ambiente y aprender a respetar el trabajo de los demás."
+        }, {
+            "id": "a&a", 
+            "company": "Alonso & Alonso", 
+            "position": "Colaborador",
+            "period": "Julio 2026",  
+            "description": "Estuve trabajando para la empresa Alonso & Alonso como colaborador en la TLP (Tenerife LAN Party) ayudando a montar y desmontar escenarios, ayudando a gestionar el evento y a los organizadores de la convención. Lo que más destaco de este trabajo es la importancia de un buen equipo unido y eficaz, puesto que con un equipo así el valor de las tareas se multiplica exponencialmente."
+        }
+    ], 
+    "education": [
+        {
+            "id": "bachillerato", 
+            "school": "Colegio Luther King Sur", 
+            "studies": "Bachillerato técnico",
+            "period": "Septiembre 2020 - Junio 2022"
+        }, 
+        {
+            "id": "universidad", 
+            "school": "Universidad Complutense de Madrid", 
+            "studies": "Grado en Ingeniería de Software",
+            "period": "Septiembre 2022 - Junio 2026"
+        }
+    ]
+}

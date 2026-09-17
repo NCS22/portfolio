@@ -1,0 +1,36 @@
+[
+  {
+    "id": "petcare",
+    "featured": true,
+    "title": "PetCare",
+    "tagline": "Red social full-stack para dueños de mascotas y empresas del sector",
+    "problem": "Gestionar mascotas y conectar a dueños de mascotas con empresas, freelancers y contenido del sector orquestado en un mismo espacio, con comunicación en tiempo real.",
+    "decisions": [
+      "Comunicación en tiempo real vía WebSockets para notificaciones instantáneas",
+      "Arquitectura full-stack con HTML/CSS/JS vanilla, Node.js y MySQL", 
+      "Integración de Foros, artículos y comunicación privada entre usuarios para gestionar la actividad diaria de la aplicación", 
+      "Aplicación testeada mediante pruebas unitarias, pruebas de integración, pruebas manuales y pruebas con usuarios para un mayor nivel de fiabilidad y calidad"
+    ],
+    "result": "Aplicación completamente funcional para usuarios en línea y más de 400 páginas de documentación.",
+    "stack": ["JavaScript", "HTML5", "CSS3", "Express.js", "JQuery", "MySQL", "WebSockets", "Jest"],
+    "links": { "repo": "https://github.com/TFG-2025-26/PetCARE"}
+  },
+  {
+    "id": "biblioteca-personajes",
+    "featured": false,
+    "title": "Biblioteca de Personajes",
+    "tagline": "Librería de personajes mediante sistema de cartas y stats para un RPG de mazos, diseñado desde cero",
+    "stack": ["React", "JSON"],
+    "links": { "repo": "..." }, 
+    "img": "game-library.png"
+  },
+  {
+    "id": "que-pokemon-eres",
+    "featured": false,
+    "title": "¿Qué Pokémon Eres?",
+    "tagline": "Quiz de personalidad con modelo kNN entrenado en Python e inferencia en tiempo real sobre el navegador para saber qué Pokémon de primera generación eres",
+    "stack": ["React", "JSON", "JavaScript", "Python", "Tailwind CSS", "Machine Learning (kNN)", "API"],
+    "links": { "repo": "https://github.com/NCS22/Pokemon-Quiz" }, 
+    "img": "pokemon-image.jpg"
+  }
+]
