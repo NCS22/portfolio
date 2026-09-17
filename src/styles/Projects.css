@@ -91,10 +91,19 @@
     border: 2px solid var(--color-accent-secondary-hover); 
 }
 
-.project-link {
+.project-links {
+    display: flex;
+    gap: 12px; 
+}
+
+.project-link-repo, .project-link-web, .project-link {
     a {
         text-decoration: none;
     }
+}
+
+.hidden-element {
+    visibility: hidden; 
 }
 
 .petcare-btn-primary {
@@ -290,9 +299,9 @@
     color: var(--color-text-secondary); 
     color: var(--color-text-primary); 
     font-size: 0.80rem;
+    pointer-events: none;
     cursor: not-allowed;
     opacity: 70%;
-    pointer-events: none;
 }
 
 @media (max-width: 900px) {
@@ -308,5 +317,9 @@
         grid-template-areas: "content" "image";
         align-items: center;
         gap: 16px; 
+    }
+
+    .project-card-img {
+        justify-self: center;
     }
 }

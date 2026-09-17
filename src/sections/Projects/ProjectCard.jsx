@@ -17,9 +17,15 @@ function ProjectCard({project}) {
                             <span key={tech} className="project-tag">{tech}</span>
                         ))}
                     </div>
-                    <div className="project-link">
-                        {<a href={links.repo} className={repoAvailable ? 'petcare-btn-primary' : 'petcare-btn-not'} target="_blank">{textRepo}</a>}
+                    <div className="project-links">
+                        <div className="project-link-repo">
+                            {<a href={links.repo} className={repoAvailable ? 'petcare-btn-primary' : 'petcare-btn-not'} target="_blank">{textRepo}</a>}
+                        </div>
+                        <div className={repoAvailable ? 'project-link-web' : 'hidden-element'}>
+                            {<a href={links.web} className='petcare-btn-primary' target="_blank">Ir a la web</a>}
+                        </div>
                     </div>
+
                 </div>
             </div>
             <img className="project-card-img" src={`/projects/${img}`}/>

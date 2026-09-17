@@ -30,7 +30,7 @@
     "title": "¿Qué Pokémon Eres?",
     "tagline": "Quiz de personalidad con modelo kNN entrenado en Python e inferencia en tiempo real sobre el navegador para saber qué Pokémon de primera generación eres",
     "stack": ["React", "JSON", "JavaScript", "Python", "Tailwind CSS", "Machine Learning (kNN)", "API"],
-    "links": { "repo": "https://github.com/NCS22/Pokemon-Quiz" }, 
+    "links": { "repo": "https://github.com/NCS22/Pokemon-Quiz", "web": "https://pokemon-quiz-opal-xi.vercel.app/" }, 
     "img": "pokemon-image.jpg"
   }
 ]
