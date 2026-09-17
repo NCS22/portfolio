@@ -4,14 +4,14 @@
     "featured": true,
     "title": "PetCare",
     "tagline": "Red social full-stack para dueños de mascotas y empresas del sector",
-    "problem": "Gestionar mascotas y conectar a dueños de mascotas con empresas, freelancers y contenido del sector orquestado en un mismo espacio, con comunicación en tiempo real.",
+    "problem": "No existe una plataforma accesible y gratuita que integre en una misma aplicación la gestión de mascotas con contenido ilustrativo referente al mundo animal, con grandes y pequeñas empresas del sector y con usuarios con un mismo interés común: la fauna de nuestro planeta.\nEn PetCare propusimos la idea de generar una gran comunidad creando una aplicación que pudiera hacer todo esto sin necesidad de tener la información ni gestión desperdigada en varias herramientas.",
     "decisions": [
-      "Comunicación en tiempo real vía WebSockets para notificaciones instantáneas",
-      "Arquitectura full-stack con HTML/CSS/JS vanilla, Node.js y MySQL", 
-      "Integración de Foros, artículos y comunicación privada entre usuarios para gestionar la actividad diaria de la aplicación", 
-      "Aplicación testeada mediante pruebas unitarias, pruebas de integración, pruebas manuales y pruebas con usuarios para un mayor nivel de fiabilidad y calidad"
+      "Para mantener la aplicación viva decidimos implementar foros y artículos con AJAX, de modo que la nueva información se cargara periódicamente sin necesidad de que los usuarios recargaran la página.",
+      "De la misma forma, implementamos chats entre usuarios haciendo uso de websockets para notificaciones instantaneas con una infraestructura que funciona.",
+      "La arquitectura de la aplicación se desarrolló con HTML/CSS/JS vanilla, Node.js y MySQL. Aunque no son las herramientas más convencionales para una aplicación tan grande, el hecho de haber sido un proyecto acádemico influyó mucho a la hora de escoger dicho stack.", 
+      "La aplicación fue testeada mediante pruebas unitarias, pruebas de integración, pruebas manuales y pruebas con usuarios para un mayor nivel de fiabilidad y calidad."
     ],
-    "result": "Aplicación completamente funcional para usuarios en línea y más de 400 páginas de documentación.",
+    "result": "Aplicación completamente funcional para usuarios con una amplia variedad de funcionalidades en línea, desde autenticación de usuarios, gestión de mascotas, contenido accesible con foros y artículos, gestión de anuncios, chats y funcionalidades de administración para gestión de usaurios, foros, artículos y reportes.",
     "stack": ["JavaScript", "HTML5", "CSS3", "Express.js", "JQuery", "MySQL", "WebSockets", "Jest"],
     "links": { "repo": "https://github.com/TFG-2025-26/PetCARE"}
   },
