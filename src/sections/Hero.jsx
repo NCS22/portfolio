@@ -23,7 +23,7 @@ function Hero() {
                         </a>
                     </div>
                 </div>
-                <img className="hero-overlay-image" src='src\assets\Nacho.jpeg' alt="imagen de Ignacio Cabrera"/>
+                <img className="hero-overlay-image" src='/Nacho.jpeg' alt="imagen de Ignacio Cabrera"/>
             </div>
         </div>
     )

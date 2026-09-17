@@ -5,10 +5,10 @@ function PetCareSlider() {
     const timeoutRef = useRef(null);
 
     const images = [
-        { src: "src/assets/projects/petcare-phone.png", alt: "petcare-imagen-1" },
-        { src: "src/assets/projects/petcare-chat.png", alt: "petcare-imagen-2" },
-        { src: "src/assets/projects/petcare-articulos.png", alt: "petcare-imagen-3" },
-        { src: "src/assets/projects/petcare-userpage.png", alt: "petcare-imagen-4" }
+        { src: "/projects/petcare-phone.png", alt: "petcare-imagen-1" },
+        { src: "/projects/petcare-chat.png", alt: "petcare-imagen-2" },
+        { src: "/projects/petcare-articulos.png", alt: "petcare-imagen-3" },
+        { src: "/projects/petcare-userpage.png", alt: "petcare-imagen-4" }
     ];
 
     // Limpiar el temporizador activo
