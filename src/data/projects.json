@@ -12,7 +12,7 @@
       "PetCare cuenta con una clara distinción de roles. Por un lado están los usuarios que hacen uso pleno de la aplicación, las empresas que buscan gestionar sus negocios y citas desde dentro y finalmente los administradores cuyo objetivo es gestionar el correcto funcionamiento y el cumplimiento de las normas por parte de los usuarios.", 
       "La aplicación fue testeada mediante pruebas unitarias, pruebas de integración, pruebas manuales y pruebas con usuarios para un mayor nivel de fiabilidad y calidad."
     ],
-    "result": "Aplicación completamente funcional para usuarios con una amplia variedad de funcionalidades en línea, desde autenticación de usuarios, gestión de mascotas, contenido accesible con foros y artículos, gestión de anuncios, chats y funcionalidades de administración para gestión de usaurios, foros, artículos y reportes.",
+    "result": "Aplicación completamente funcional para usuarios con una amplia variedad de funcionalidades en línea, desde autenticación de usuarios, gestión de mascotas, contenido accesible con foros y artículos, gestión de anuncios, chats y funcionalidades de administración para gestión de usuarios, foros, artículos y reportes.",
     "stack": ["JavaScript", "HTML5", "CSS3", "Express.js", "JQuery", "MySQL", "WebSockets", "Jest"],
     "links": { "repo": "https://github.com/TFG-2025-26/PetCARE"}
   },
