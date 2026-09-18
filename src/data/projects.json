@@ -17,12 +17,12 @@
     "links": { "repo": "https://github.com/TFG-2025-26/PetCARE"}
   },
   {
-    "id": "biblioteca-personajes",
+    "id": "reservas-nale",
     "featured": false,
     "title": "Gestor de Reservas para Automóviles",
     "tagline": "Este proyecto nació como un ejercicio académico para desarrollar una solución Full-stack completa para la gestión de reservas de una empresa de automóviles. La plataforma combina una base de datos persistente con un sistema de roles que diferencia claramente las funcionalidades de administradores y clientes. Uno de los principales retos fue gestionar las reservas de forma dinámica mediante AJAX, implementando las comprobaciones necesarias para impedir que un mismo vehículo pueda reservarse para periodos de tiempo incompatibles o en caso de que las reservas se estuvieran haciendo a la vez. También desarrollé una feed interactiva y responsive orientada a ofrecer una experiencia de usuario fluida e integré la API de Maps para mostrar visualmente la ubicación de los concesionarios. Como parte de la arquitectura, la aplicación utiliza validación dual en Front y Back para controlar los datos recibidos y reforzar la seguridad frente a accesos o comportamientos no esperados.",
     "stack": ["HTML/CSS", "JavaScript", "JSON", "Node", "MySQL", "AJAX"],
-    "links": { "repo": "..." }, 
+    "links": { "repo": "https://github.com/NCS22/Reservas-NALE" }, 
     "img": "mantenimiento.png"
   },
   {
