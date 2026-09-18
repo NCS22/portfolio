@@ -9,7 +9,7 @@ function Hero() {
                     </h1>
                     <span className="hero-overlay-text-rol">full-stack developer & UI/UX designer</span>
                     <p className="hero-overlay-text-description">
-                        Full-stack developer con fundamentos sólidos en desarrollo web y bases de datos, y una capacidad de aprender por cuenta propia que aplico a todo lo que construyo. De HTML y JavaScript vanilla a React, aprendo rápido y lo llevo a la práctica sin esperar a que me lo enseñen. Cada proyecto es una oportunidad para hacerlo mejor que el anterior.
+                        Full-stack developer con fundamentos sólidos en desarrollo web y bases de datos, pero sobre todo, con una curiosidad constante por seguir aprendiendo. Me gusta aprender por mi cuenta, experimentar y llevar rápidamente lo aprendido a proyectos reales. Cuando desarrollo, busco que cada solución sea optimizada, escalable y responsive, cuidando tanto su funcionamiento como la experiencia de quien la utiliza. También disfruto especialmente trabajando en equipo: entender cómo trabajan los demás, aprender de sus formas de hacer las cosas y encontrar cómo puedo aportar para que el resultado sea mejor. Cada proyecto y cada equipo son una oportunidad para seguir creciendo.
                     </p>
                     <div className="hero-overlay-buttons">
                         <a href="#projects" className="hero-overlay-text-buttom">
