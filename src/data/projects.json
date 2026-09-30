@@ -1,24 +1,8 @@
 [
   {
-    "id": "petcare",
-    "featured": true,
-    "title": "PetCare",
-    "tagline": "Red social full-stack para dueños de mascotas y empresas del sector",
-    "problem": "No existe una plataforma accesible y gratuita que integre en una misma aplicación la gestión de mascotas con contenido ilustrativo referente al mundo animal, con grandes y pequeñas empresas del sector y con usuarios con un mismo interés común: la fauna de nuestro planeta.\nEn PetCare propusimos la idea de generar una gran comunidad creando una aplicación que pudiera hacer todo esto sin necesidad de tener la información ni gestión desperdigada en varias herramientas.",
-    "decisions": [
-      "Para mantener la aplicación viva decidimos implementar foros y artículos con AJAX, de modo que la nueva información se cargara periódicamente sin necesidad de que los usuarios recargaran la página.",
-      "De la misma forma, implementamos chats entre usuarios haciendo uso de websockets para notificaciones instantaneas con una infraestructura que funciona.",
-      "La arquitectura de la aplicación se desarrolló con HTML/CSS/JS vanilla, Node.js y MySQL. Aunque no son las herramientas más convencionales para una aplicación tan grande, el hecho de haber sido un proyecto acádemico influyó mucho a la hora de escoger dicho stack.", 
-      "PetCare cuenta con una clara distinción de roles. Por un lado están los usuarios que hacen uso pleno de la aplicación, las empresas que buscan gestionar sus negocios y citas desde dentro y finalmente los administradores cuyo objetivo es gestionar el correcto funcionamiento y el cumplimiento de las normas por parte de los usuarios.", 
-      "La aplicación fue testeada mediante pruebas unitarias, pruebas de integración, pruebas manuales y pruebas con usuarios para un mayor nivel de fiabilidad y calidad."
-    ],
-    "result": "Aplicación completamente funcional para usuarios con una amplia variedad de funcionalidades en línea, desde autenticación de usuarios, gestión de mascotas, contenido accesible con foros y artículos, gestión de anuncios, chats y funcionalidades de administración para gestión de usuarios, foros, artículos y reportes.",
-    "stack": ["TypeScript", "React", "HTML5", "CSS3", "npm", "API", "Opencode"],
-    "links": { "repo": "https://github.com/NCS22/cheap-station"}
-  },
-  {
     "id": "cheap-station",
     "featured": true,
+    "featuredOrder": 1,
     "title": "Cheap Station",
     "tagline": "Buscador de gasolineras con precios más baratos alrededor de tu zona o del CP a elección. ",
     "problem": "Como estudiante que vive en una isla, sé lo difícil que es moverse sin tener coche, pero cuando uno piensa que el coche es la solución a todos los problemas, aparece otro mucho mayor: la gasolina y su precio.\nConstruí Cheap Station con la idea de evitarme la tarea de perder tiempo y dinero todos los meses buscando una opción cercana que me ayudara a ahorrar unos euros al mes en pagar precios desorbitados.",
@@ -32,8 +16,36 @@
       "Al no existir un runner de tests, la fiabilidad se garantiza con comprobación de tipos y compilación estrictas (TypeScript y build de producción), lint con oxlint y pruebas manuales en navegador con códigos postales peninsulares e insulares y con la emulación de GPS de las herramientas de desarrollo."
     ],
     "result": "Aplicación web completamente funcional y sin registro para encontrar las gasolineras más baratas de España: permite buscar por código postal o por ubicación GPS, elegir combustible y radio de búsqueda, y muestra las 20 estaciones más baratas cercanas ordenadas por precio, con su distancia, dirección, horario y un enlace para llegar hasta ellas. Los precios proceden siempre de la fuente oficial del Ministerio, la interfaz está pensada para usarse cómodamente desde el móvil y el proyecto queda listo para desplegarse como sitio estático.",
+    "stack": ["TypeScript", "React", "HTML5", "CSS3", "npm", "API", "Opencode"],
+    "links": { "repo": "https://github.com/NCS22/cheap-station" },
+    "images": [
+      {"src": "/projects/cheap-station-feed.png", "alt": "Cheap Station - Feed principal" }, 
+      {"src": "/projects/cheap-station-phone.png", "alt": "Cheap Station - Búsqueda teléfono móvil" }
+    ]
+  },
+  {
+    "id": "petcare",
+    "featured": true,
+    "featuredOrder": 2,
+    "title": "PetCare",
+    "tagline": "Red social full-stack para dueños de mascotas y empresas del sector",
+    "problem": "No existe una plataforma accesible y gratuita que integre en una misma aplicación la gestión de mascotas con contenido ilustrativo referente al mundo animal, con grandes y pequeñas empresas del sector y con usuarios con un mismo interés común: la fauna de nuestro planeta.\nEn PetCare propusimos la idea de generar una gran comunidad creando una aplicación que pudiera hacer todo esto sin necesidad de tener la información ni gestión desperdigada en varias herramientas.",
+    "decisions": [
+      "Para mantener la aplicación viva decidimos implementar foros y artículos con AJAX, de modo que la nueva información se cargara periódicamente sin necesidad de que los usuarios recargaran la página.",
+      "De la misma forma, implementamos chats entre usuarios haciendo uso de websockets para notificaciones instantaneas con una infraestructura que funciona.",
+      "La arquitectura de la aplicación se desarrolló con HTML/CSS/JS vanilla, Node.js y MySQL. Aunque no son las herramientas más convencionales para una aplicación tan grande, el hecho de haber sido un proyecto acádemico influyó mucho a la hora de escoger dicho stack.",
+      "PetCare cuenta con una clara distinción de roles. Por un lado están los usuarios que hacen uso pleno de la aplicación, las empresas que buscan gestionar sus negocios y citas desde dentro y finalmente los administradores cuyo objetivo es gestionar el correcto funcionamiento y el cumplimiento de las normas por parte de los usuarios.",
+      "La aplicación fue testeada mediante pruebas unitarias, pruebas de integración, pruebas manuales y pruebas con usuarios para un mayor nivel de fiabilidad y calidad."
+    ],
+    "result": "Aplicación completamente funcional para usuarios con una amplia variedad de funcionalidades en línea, desde autenticación de usuarios, gestión de mascotas, contenido accesible con foros y artículos, gestión de anuncios, chats y funcionalidades de administración para gestión de usuarios, foros, artículos y reportes.",
     "stack": ["JavaScript", "HTML5", "CSS3", "Express.js", "JQuery", "MySQL", "WebSockets", "Jest"],
-    "links": { "repo": "https://github.com/TFG-2025-26/PetCARE"}
+    "links": { "repo": "https://github.com/TFG-2025-26/PetCARE" },
+    "images": [
+      { "src": "/projects/petcare-phone.png", "alt": "PetCare - vista móvil" },
+      { "src": "/projects/petcare-chat.png", "alt": "PetCare - chat entre usuarios" },
+      { "src": "/projects/petcare-articulos.png", "alt": "PetCare - sección de artículos" },
+      { "src": "/projects/petcare-userpage.png", "alt": "PetCare - página de usuario" }
+    ]
   },
   {
     "id": "reservas-nale",
@@ -41,7 +53,7 @@
     "title": "Gestor de Reservas para Automóviles",
     "tagline": "Este proyecto nació como un ejercicio académico para desarrollar una solución Full-stack completa para la gestión de reservas de una empresa de automóviles. La plataforma combina una base de datos persistente con un sistema de roles que diferencia claramente las funcionalidades de administradores y clientes. Uno de los principales retos fue gestionar las reservas de forma dinámica mediante AJAX, implementando las comprobaciones necesarias para impedir que un mismo vehículo pueda reservarse para periodos de tiempo incompatibles o en caso de que las reservas se estuvieran haciendo a la vez. También desarrollé una feed interactiva y responsive orientada a ofrecer una experiencia de usuario fluida e integré la API de Maps para mostrar visualmente la ubicación de los concesionarios. Como parte de la arquitectura, la aplicación utiliza validación dual en Front y Back para controlar los datos recibidos y reforzar la seguridad frente a accesos o comportamientos no esperados.",
     "stack": ["HTML/CSS", "JavaScript", "JSON", "Node", "MySQL", "AJAX"],
-    "links": { "repo": "https://github.com/NCS22/Reservas-NALE" }, 
+    "links": { "repo": "https://github.com/NCS22/Reservas-NALE" },
     "img": "mantenimiento.png"
   },
   {
@@ -50,7 +62,7 @@
     "title": "¿Qué Pokémon Eres?",
     "tagline": "Pokémon Quiz nació como un proyecto personal para aprender React y Tailwind mientras experimentaba con mi primer modelo de IA. El principal reto no fue únicamente desarrollar el quiz, sino determinar qué preguntas y características podían establecer una relación coherente entre el caracter de una persona y un Pokémon. Junto con la IA, diseñé y refiné 12 preguntas basadas en cinco criterios: asertividad, curiosidad, sociabilidad, resiliencia y energía. Tras realizar diferentes pruebas, esta combinación ofreció el mejor equilibrio entre los rasgos de personalidad, los tipos y las estadísticas de cada Pokémon. El resultado es una experiencia interactiva que combina desarrollo frontend y clasificación mediante IA usando un modelo kNN para escoger al pokemon más cercano al resultado.",
     "stack": ["React", "JSON", "JavaScript", "Python", "Tailwind CSS", "Machine Learning (kNN)", "API"],
-    "links": { "repo": "https://github.com/NCS22/Pokemon-Quiz", "web": "https://pokemon-quiz-opal-xi.vercel.app/" }, 
+    "links": { "repo": "https://github.com/NCS22/Pokemon-Quiz", "web": "https://pokemon-quiz-opal-xi.vercel.app/" },
     "img": "pokemon-image.jpg"
   }
 ]

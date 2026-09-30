@@ -16,20 +16,44 @@
     gap: 12px; 
 }
 
-.petcare {
+.featured-list {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    margin-bottom: 48px;
+}
+
+.featured {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "content image";
     gap: 48px; 
     align-items: center;
     padding: 32px;
+    border-radius: 16px;
+    scroll-margin-top: 80px;
 }
 
-.petcare-content {
+.featured.reverse {
+    grid-template-areas: "image content";
+}
+
+.featured--alt {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+}
+
+.featured.no-media {
+    grid-template-columns: 1fr;
+    grid-template-areas: "content";
+}
+
+.featured-content {
     grid-area: content;
+    min-width: 0;
 }
 
-.petcare-label {
+.featured-label {
     font-family: var(--font-mono);
     font-size: 0.8em; 
     text-transform: uppercase;
@@ -37,21 +61,21 @@
     color: var(--color-accent);
 }
 
-.petcare-title {
+.featured-title {
     font-family: var(--font-display);
     font-size: 2.5rem; 
     color: var(--color-text-primary); 
     margin: 8px 0; 
 }
 
-.petcare-tagline {
+.featured-tagline {
     font-family: var(--font-body);
     font-weight: 500;
     color: var(--color-text-primary);
     margin-bottom: 8px;
 }
 
-.petcare-block {
+.featured-block {
     margin-bottom: 20px;
 
     & > h4 {
@@ -75,7 +99,7 @@
     }
 }
 
-.petcare-stack {
+.featured-stack {
     display: flex;
     flex-wrap: wrap;
     gap: 8px; 
@@ -123,7 +147,7 @@
 }
 
 .project-btn-primary, 
-.petcare-btn-primary {
+.featured-btn-primary {
     position: relative; 
     z-index: 1; 
     display: flex;
@@ -161,28 +185,29 @@
 }
 
 /* Contenedor externo que posiciona los botones y los puntos */
-.petcare-carousel-wrapper {
+.featured-carousel-wrapper {
     grid-area: image; 
     position: relative;
     width: 100%;
-    max-width: 600px; /* Ajusta según el diseño de tu app */
+    max-width: 600px;
+    min-width: 0;
     margin: 0 auto;
 }
 
-.petcare-slider-container {
+.featured-slider-container {
     overflow: hidden;
     width: 100%;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.petcare-slider-track {
+.featured-slider-track {
     display: flex;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     width: 100%;
 }
 
-.petcare-slider-item {
+.featured-slider-item {
     width: 100%;
     flex-shrink: 0;
     object-fit: cover;
@@ -190,7 +215,7 @@
 }
 
 
-.petcare-nav-btn {
+.featured-nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -209,30 +234,34 @@
     transition: opacity 0.3s;
 }
 
-.petcare-nav-btn:hover {
+.featured-nav-btn:hover {
     opacity: 100%;
 }
 
-.petcare-nav-btn.prev { left: 8px; }
-.petcare-nav-btn.next { right: 8px; }
+.featured-nav-btn.prev { left: 8px; }
+.featured-nav-btn.next { right: 8px; }
 
-.petcare-dots {
+.featured-dots {
   text-align: center;
   margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-.petcare-dot {
+.featured-dot {
   display: inline-block;
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  border: none;
+  padding: 0;
   background: gray;
-  margin: 0 5px;
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
 }
 
-.petcare-dot.active {
+.featured-dot.active {
     background: var(--color-accent);
     transform: scale(1.2);
 }
@@ -301,7 +330,7 @@
     box-shadow: 0 5px 10px var(--color-bg-alt);
 }
 
-.petcare-btn-not {
+.featured-btn-not {
     position: relative; 
     display: flex;
     align-items: center;
@@ -320,12 +349,71 @@
     opacity: 70%;
 }
 
+/* Aliases de compatibilidad con nombres anteriores */
+.petcare-btn-primary {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 12px 24px;
+    border: 1px solid var(--color-btn-primary-bg);
+    border-radius: 5px;
+    font-family: var(--font-mono);
+    background-color: transparent;
+    color: var(--color-text-primary);
+    font-size: 0.80rem;
+    cursor: pointer;
+}
+
+.petcare-btn-not {
+    position: relative; 
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 12px 24px;
+    margin-bottom: 8px;
+    border: 1px solid var(--color-text-secondary); 
+    border-radius: 5px;
+    font-family: var(--font-mono);
+    background-color: gray;
+    color: var(--color-text-primary); 
+    font-size: 0.80rem;
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 70%;
+}
+
 @media (max-width: 900px) {
-    .petcare {
+    .projects {
+        padding: 24px;
+    }
+
+    .featured-list {
+        gap: 32px;
+        margin-bottom: 32px;
+    }
+
+    .featured,
+    .featured.reverse,
+    .featured.no-media {
         grid-template-columns: 1fr;
         grid-template-areas: "content" "image";
         align-items: center;
         gap: 24px; 
+        padding: 24px 20px;
+    }
+
+    .featured.no-media {
+        grid-template-areas: "content";
+    }
+
+    .featured-title {
+        font-size: 2rem;
+    }
+
+    .featured-carousel-wrapper {
+        max-width: 100%;
     }
 
     .project-card {
