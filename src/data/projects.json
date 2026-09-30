@@ -13,6 +13,25 @@
       "La aplicación fue testeada mediante pruebas unitarias, pruebas de integración, pruebas manuales y pruebas con usuarios para un mayor nivel de fiabilidad y calidad."
     ],
     "result": "Aplicación completamente funcional para usuarios con una amplia variedad de funcionalidades en línea, desde autenticación de usuarios, gestión de mascotas, contenido accesible con foros y artículos, gestión de anuncios, chats y funcionalidades de administración para gestión de usuarios, foros, artículos y reportes.",
+    "stack": ["TypeScript", "React", "HTML5", "CSS3", "npm", "API", "Opencode"],
+    "links": { "repo": "https://github.com/NCS22/cheap-station"}
+  },
+  {
+    "id": "cheap-station",
+    "featured": true,
+    "title": "Cheap Station",
+    "tagline": "Buscador de gasolineras con precios más baratos alrededor de tu zona o del CP a elección. ",
+    "problem": "Como estudiante que vive en una isla, sé lo difícil que es moverse sin tener coche, pero cuando uno piensa que el coche es la solución a todos los problemas, aparece otro mucho mayor: la gasolina y su precio.\nConstruí Cheap Station con la idea de evitarme la tarea de perder tiempo y dinero todos los meses buscando una opción cercana que me ayudara a ahorrar unos euros al mes en pagar precios desorbitados.",
+    "decisions": [
+      "Para mantener los precios siempre actualizados decidimos no crear ni base de datos ni backend: la aplicación descarga directamente el listado oficial del Ministerio y lo guarda en localStorage durante 30 minutos, de modo que el usuario ve datos frescos sin que tengamos que sincronizar ni mantener nada en un servidor.",
+      "La aplicación se desarrolló como una SPA estática con Vite, React, TypeScript y Tailwind CSS. Al no depender de ningún servidor propio, puede desplegarse en cualquier hosting estático, y el hecho de que fuera un proyecto de aprendizaje influyó en la elección de un stack moderno de frontend.",
+      "La arquitectura se organizó en capas (pages, hooks, services, utils y config) con reglas claras: todo el acceso a red vive en services, los componentes nunca llaman a fetch y todo el CSS se concentra en una única carpeta. Así podemos añadir nuevas pantallas o fuentes de datos, como un mapa o favoritos, sin reescribir lo existente.",
+      "Para convertir un código postal en un punto de búsqueda fiable implementamos una cascada de geocodificación: primero el centroide del código postal en Nominatim y, si falla, un centroide robusto calculado con todos los lugares de Zippopotam. Esta decisión surgió de un error real: con el código 38628, tomar el primer lugar devuelto situaba la búsqueda a 34,6 km del punto real.",
+      "Además del código postal, añadimos la búsqueda por ubicación GPS con una única lectura de posición, y solo se ofrece en contextos seguros (HTTPS o localhost). Cada fallo, como permiso denegado, falta de señal o tiempo agotado, tiene su propio mensaje, y si no se puede obtener el nombre de la localidad, la búsqueda continúa igualmente.",
+      "Las distancias se calculan en línea recta con la fórmula de Haversine, suficiente para ordenar las estaciones cercanas, y delegamos en Google Maps el cálculo de la ruta real con un enlace \"Cómo llegar\" en cada resultado.",
+      "Al no existir un runner de tests, la fiabilidad se garantiza con comprobación de tipos y compilación estrictas (TypeScript y build de producción), lint con oxlint y pruebas manuales en navegador con códigos postales peninsulares e insulares y con la emulación de GPS de las herramientas de desarrollo."
+    ],
+    "result": "Aplicación web completamente funcional y sin registro para encontrar las gasolineras más baratas de España: permite buscar por código postal o por ubicación GPS, elegir combustible y radio de búsqueda, y muestra las 20 estaciones más baratas cercanas ordenadas por precio, con su distancia, dirección, horario y un enlace para llegar hasta ellas. Los precios proceden siempre de la fuente oficial del Ministerio, la interfaz está pensada para usarse cómodamente desde el móvil y el proyecto queda listo para desplegarse como sitio estático.",
     "stack": ["JavaScript", "HTML5", "CSS3", "Express.js", "JQuery", "MySQL", "WebSockets", "Jest"],
     "links": { "repo": "https://github.com/TFG-2025-26/PetCARE"}
   },
