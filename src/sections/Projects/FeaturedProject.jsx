@@ -1,7 +1,15 @@
+import { useState } from "react";
 import ProjectSlider from "../../hooks/ProjectSlider";
+
+const TABS = [
+    { id: "problem", label: "El problema" },
+    { id: "decisions", label: "Decisiones clave" },
+    { id: "result", label: "Resultado" },
+];
 
 function FeaturedProject({ project, index = 0, reversed = false }) {
     const { id, title, tagline, problem, decisions, result, stack, links, images = [] } = project;
+    const [activeTab, setActiveTab] = useState("problem");
     const hasMedia = images && images.length > 0;
     const caseNumber = String(index + 1).padStart(2, "0");
 
@@ -10,26 +18,36 @@ function FeaturedProject({ project, index = 0, reversed = false }) {
             id={id}
             className={`featured${reversed ? " reverse" : ""}${index % 2 === 1 ? " featured--alt" : ""}${!hasMedia ? " no-media" : ""}`}
         >
-            <div className="featured-content">
+            <header className="featured-head">
                 <span className="featured-label">Caso destacado · {caseNumber}</span>
                 <h3 className="featured-title">{title}</h3>
                 <p className="featured-tagline">{tagline}</p>
+            </header>
 
-                <div className="featured-block">
-                    <h4>El problema</h4>
-                    <p>{problem}</p>
+            <div className="featured-content">
+                <div className="featured-tabs" role="tablist" aria-label={`Detalle de ${title}`}>
+                    {TABS.map(tab => (
+                        <button
+                            key={tab.id}
+                            type="button"
+                            role="tab"
+                            aria-selected={activeTab === tab.id}
+                            className={`featured-tab${activeTab === tab.id ? " active" : ""}`}
+                            onClick={() => setActiveTab(tab.id)}
+                        >
+                            {tab.id === "decisions" ? `${tab.label} (${decisions.length})` : tab.label}
+                        </button>
+                    ))}
                 </div>
 
-                <div className="featured-block">
-                    <h4>Decisiones Clave</h4>
-                    <ul>
-                        {decisions.map((d, i) => <li key={i}>{d}</li>)}
-                    </ul>
-                </div>
-
-                <div className="featured-block">
-                    <h4>Resultado</h4>
-                    <p>{result}</p>
+                <div className="featured-panel" role="tabpanel">
+                    {activeTab === "problem" && <p>{problem}</p>}
+                    {activeTab === "decisions" && (
+                        <ul>
+                            {decisions.map((d, i) => <li key={i}>{d}</li>)}
+                        </ul>
+                    )}
+                    {activeTab === "result" && <p>{result}</p>}
                 </div>
 
                 <div className="featured-stack">

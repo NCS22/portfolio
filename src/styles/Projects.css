@@ -25,17 +25,23 @@
 
 .featured {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "content image";
-    gap: 48px; 
-    align-items: center;
+    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-areas: "head head" "content image";
+    gap: 24px 48px;
+    align-items: start;
     padding: 32px;
     border-radius: 16px;
     scroll-margin-top: 80px;
 }
 
 .featured.reverse {
-    grid-template-areas: "image content";
+    grid-template-areas: "head head" "image content";
+}
+
+.featured-head {
+    grid-area: head;
+    min-width: 0;
+    max-width: 90ch;
 }
 
 .featured--alt {
@@ -45,12 +51,87 @@
 
 .featured.no-media {
     grid-template-columns: 1fr;
-    grid-template-areas: "content";
+    grid-template-areas: "head" "content";
 }
 
 .featured-content {
     grid-area: content;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.featured-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 12px;
+}
+
+.featured-tab {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+}
+
+.featured-tab:hover {
+    color: var(--color-text-primary);
+    border-color: var(--color-border);
+}
+
+.featured-tab.active {
+    color: var(--color-text-primary);
+    background-color: var(--color-accent-secondary);
+    border-color: var(--color-accent-secondary-hover);
+}
+
+.featured-panel {
+    min-height: 260px;
+    max-height: 46vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+    scrollbar-gutter: stable;
+    color: var(--color-text-secondary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    white-space: pre-line;
+    padding-right: 12px;
+
+    ul {
+        margin-left: 24px;
+        list-style: circle;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.featured-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.featured-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.featured-panel::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 999px;
+}
+
+.featured-panel::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
 }
 
 .featured-label {
@@ -187,9 +268,11 @@
 /* Contenedor externo que posiciona los botones y los puntos */
 .featured-carousel-wrapper {
     grid-area: image; 
-    position: relative;
+    position: sticky;
+    top: 100px;
+    align-self: start;
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     min-width: 0;
     margin: 0 auto;
 }
@@ -197,21 +280,24 @@
 .featured-slider-container {
     overflow: hidden;
     width: 100%;
+    aspect-ratio: 16 / 9;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-bg-alt);
 }
 
 .featured-slider-track {
     display: flex;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     width: 100%;
+    height: 100%;
 }
 
 .featured-slider-item {
     width: 100%;
+    height: 100%;
     flex-shrink: 0;
     object-fit: cover;
-    height: auto;
 }
 
 
@@ -398,14 +484,21 @@
     .featured.reverse,
     .featured.no-media {
         grid-template-columns: 1fr;
-        grid-template-areas: "content" "image";
+        grid-template-areas: "head" "image" "content";
         align-items: center;
         gap: 24px; 
         padding: 24px 20px;
     }
 
-    .featured.no-media {
-        grid-template-areas: "content";
+    .featured-carousel-wrapper {
+        position: relative;
+        top: auto;
+    }
+
+    .featured-panel {
+        min-height: 0;
+        max-height: none;
+        overflow-y: visible;
     }
 
     .featured-title {
