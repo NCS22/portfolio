@@ -201,6 +201,10 @@
     display: flex;
     gap: 20px; 
     align-items: center;
+
+    a {
+        text-decoration: none; 
+    }
 }
 
 .project-link-repo, .project-link-web, .project-link {

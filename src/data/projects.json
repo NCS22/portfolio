@@ -17,7 +17,7 @@
     ],
     "result": "Aplicación web completamente funcional y sin registro para encontrar las gasolineras más baratas de España: permite buscar por código postal o por ubicación GPS, elegir combustible y radio de búsqueda, y muestra las 20 estaciones más baratas cercanas ordenadas por precio, con su distancia, dirección, horario y un enlace para llegar hasta ellas. Los precios proceden siempre de la fuente oficial del Ministerio, la interfaz está pensada para usarse cómodamente desde el móvil y el proyecto queda listo para desplegarse como sitio estático.",
     "stack": ["TypeScript", "React", "HTML5", "CSS3", "npm", "API", "Opencode"],
-    "links": { "repo": "https://github.com/NCS22/cheap-station" },
+    "links": { "repo": "https://github.com/NCS22/cheap-station", "web": "https://cheap-station.vercel.app/" },
     "images": [
       {"src": "/projects/cheap-station-feed.png", "alt": "Cheap Station - Feed principal" }, 
       {"src": "/projects/cheap-station-phone.png", "alt": "Cheap Station - Búsqueda teléfono móvil" }
