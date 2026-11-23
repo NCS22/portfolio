@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "experience education";
+    padding-bottom: var(--space-md);
 }
 
 .experience-card, .study-card {
@@ -10,17 +11,17 @@
     margin-right: 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px; 
+    gap: 16px;
 
     h2 {
-        color: var(--color-text-primary); 
+        color: var(--color-text-primary);
         font-family: var(--font-display);
         font-size: 2.4rem;
     }
 }
 
-.experience-card { grid-area: "experience"; }
-.study-card { grid-area: "study"; }
+.experience-card { grid-area: experience; }
+.study-card { grid-area: education; }
 
 .experience-card-content, .study-card-content {
     position: relative;
@@ -30,14 +31,14 @@
     flex-direction: column;
 
     h4 {
-        color: var(--color-text-primary); 
+        color: var(--color-text-primary);
         font-family: var(--font-display);
         font-size: 1.4rem;
         margin-bottom: 4px;
     }
 
     span {
-        color: var(--color-text-secondary); 
+        color: var(--color-text-secondary);
         font-family: var(--font-mono);
         font-size: 0.8rem;
         font-weight: 100;
@@ -45,7 +46,7 @@
     }
 
     p {
-        font-family: var(--font-body); 
+        font-family: var(--font-body);
         color: var(--color-text-secondary);
         font-size: 0.9rem;
 
@@ -65,14 +66,14 @@
     height: 10px;
     border-radius: 50%;
     background: var(--color-accent);
-    z-index: 1; 
+    z-index: 1;
 }
 
 .experience-card-content::after, .study-card-content::after{
     content: '';
     position: absolute;
     left: 4px;
-    top: 6px; 
+    top: 6px;
     bottom: 0;
     width: 2px;
     background: var(--color-accent);
@@ -86,8 +87,8 @@
 @media (max-width: 900px) {
     .experience {
         grid-template-columns: 1fr;
-        grid-template-areas: "experience" "study";
+        grid-template-areas: "experience" "education";
         align-items: center;
-        gap: 8px; 
+        gap: 8px;
     }
 }

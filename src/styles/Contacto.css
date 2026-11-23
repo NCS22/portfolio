@@ -1,8 +1,8 @@
 .contact {
-    margin-top: 20px;
+    margin: 0 68px var(--section-padding);
     padding: 32px;
     background: var(--color-bg-alt);
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     min-width: 0;
 }
 
@@ -46,14 +46,21 @@
 .contact-value {
     font-family: var(--font-body);
     color: var(--color-text-primary);
-    font-size: 0.9rem
+    font-size: 0.9rem;
 }
 
 .contact-link {
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color var(--dur-fast) ease;
 }
 
 .contact-link:hover {
     color: var(--color-accent-secondary);
+}
+
+@media (max-width: 900px) {
+    .contact {
+        margin: 0 var(--space-md) var(--space-lg);
+        padding: var(--space-md);
+    }
 }

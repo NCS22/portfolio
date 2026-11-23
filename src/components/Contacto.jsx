@@ -4,7 +4,7 @@ function Contacto() {
     const { fullName, email, phone, location } = contact;
 
     return (
-        <section className="contact" id="contacto">
+        <section className="contact" id="contacto" data-reveal>
             <h2 className="contact-title">Contacto</h2>
             <p className="contact-desc">¿Hablamos? Estas son mis vías de contacto.</p>
 
