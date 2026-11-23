@@ -1,5 +1,179 @@
+body {
+  overflow-x: clip;
+}
+
 .page-top {
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
+  min-height: calc(100dvh - 88px);
+}
+
+/* Títulos de sección: enormes, con una palabra subrayada a mano */
+.projects-title,
+.skills-title,
+.experience-card > h2,
+.study-card > h2,
+.contact-title {
+  position: relative;
+  width: fit-content;
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.04em;
+  color: var(--color-text-primary);
+}
+
+/* Garabato bajo los títulos principales */
+.projects-title::after,
+.experience-card > h2::after,
+.contact-title::after {
+  content: '';
+  position: absolute;
+  left: -2%;
+  bottom: -0.18em;
+  width: 104%;
+  height: 0.32em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M2 14 C 40 2, 70 18, 100 10 S 160 4, 198 12' fill='none' stroke='%23ff4f9a' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.9s var(--ease-out) 0.3s;
+}
+
+.projects:has(.featured.is-revealed) .projects-title::after,
+.experience-card.is-revealed > h2::after,
+.contact.is-revealed .contact-title::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Cursor decorativo ---------- */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-fast) ease;
+}
+
+.cursor--visible {
+  opacity: 1;
+}
+
+.cursor-dot {
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: var(--border);
+  border-radius: 50%;
+  background-color: transparent;
+  transition: transform var(--dur-base) var(--ease-bounce), background-color var(--dur-fast) ease;
+}
+
+.cursor--active .cursor-dot {
+  transform: scale(1.7);
+  background-color: color-mix(in srgb, var(--color-lime) 55%, transparent);
+}
+
+.cursor--pressed .cursor-dot {
+  transform: scale(0.7);
+}
+
+/* ---------- Cinta de texto ---------- */
+.ticker {
+  overflow: hidden;
+  padding-block: 14px;
+  border-block: var(--border);
+  background-color: var(--color-lime);
+  transform: rotate(-1.5deg) scale(1.03);
+}
+
+.ticker--pink {
+  background-color: var(--color-pink);
+  color: #ffffff;
+  transform: rotate(1.5deg) scale(1.03);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 28s linear infinite;
+}
+
+.ticker--reverse .ticker-track {
+  animation-direction: reverse;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.ticker-star {
+  display: inline-block;
+  color: var(--color-violet);
+  animation: spin 4s linear infinite;
+}
+
+.ticker--pink .ticker-star {
+  color: var(--color-yellow);
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-6deg); }
+  75% { transform: rotate(6deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-14px) rotate(var(--rot, 0deg)); }
+}
+
+/* ---------- Enlaces con trazo de rotulador ----------
+   Un brochazo irregular bajo el texto que, al pasar el ratón, crece hasta cubrirlo entero.
+   El color sale de --marker (lima por defecto). */
+.project-links a.project-web-redirect,
+.contact-link {
+  position: relative;
+  isolation: isolate;
+  text-decoration: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    right: -6px;
+    bottom: -3px;
+    z-index: -1;
+    height: 58%;
+    background-color: var(--marker, var(--color-lime));
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M5 21 C 32 11, 84 8, 124 11 S 186 12, 196 17 C 199 25, 191 33, 160 34 C 112 36, 52 38, 12 35 C 3 33, 1 27, 5 21 Z'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+    transform: rotate(-1.5deg);
+    transition: height var(--dur-base) var(--ease-bounce), transform var(--dur-base) var(--ease-bounce);
+  }
+
+  &:hover::before,
+  &:focus-visible::before {
+    height: calc(100% + 6px);
+    transform: rotate(1deg);
+  }
 }

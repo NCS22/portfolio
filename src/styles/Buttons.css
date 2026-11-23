@@ -1,60 +1,58 @@
-/* Botón con barrido de color al hacer hover. Variantes: --primary, --secondary, --disabled */
+/* Botón "pegatina": borde grueso, sombra sólida, se levanta al hover y se aplasta al pulsar.
+   Variantes: --primary, --secondary, --disabled */
 .btn {
-    --btn-color: var(--color-btn-primary-bg);
-    --btn-text-hover: var(--color-btn-primary-text);
+    --btn-bg: var(--color-btn-primary-bg);
+    --btn-text: var(--color-btn-primary-text);
 
     position: relative;
-    z-index: 1;
     display: inline-flex;
     align-items: center;
     gap: 10px;
     width: fit-content;
-    padding: 12px 24px;
-    border: 1px solid var(--btn-color);
-    border-radius: var(--radius-sm);
-    background-color: transparent;
-    color: var(--color-text-primary);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    padding: 14px 26px;
+    border: var(--border);
+    border-radius: var(--radius-pill);
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    box-shadow: var(--shadow-sm);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
     text-decoration: none;
     cursor: pointer;
-    overflow: hidden;
-    transition: color var(--dur-base) ease;
-
-    &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        background-color: var(--btn-color);
-        transform-origin: right;
-        transform: scaleX(0);
-        transition: transform 0.45s var(--ease-in-out);
-    }
+    transition:
+        transform var(--dur-base) var(--ease-bounce),
+        box-shadow var(--dur-base) var(--ease-bounce);
 
     &:hover, &:focus-visible {
-        color: var(--btn-text-hover);
+        transform: translate(-3px, -3px) rotate(-2deg);
+        box-shadow: 6px 6px 0 var(--color-ink);
     }
 
-    &:hover::before, &:focus-visible::before {
-        transform: scaleX(1);
-        transform-origin: left;
+    /* Aplastado al pulsar */
+    &:active {
+        transform: translate(3px, 3px) scale(1.04, 0.9);
+        box-shadow: 0 0 0 var(--color-ink);
+        transition-duration: 0.08s;
     }
 }
 
 .btn--secondary {
-    --btn-color: var(--color-btn-secondary-bg);
-    --btn-text-hover: var(--color-btn-secondary-text);
+    --btn-bg: var(--color-btn-secondary-bg);
+    --btn-text: var(--color-btn-secondary-text);
+
+    &:hover, &:focus-visible {
+        transform: translate(-3px, -3px) rotate(2deg);
+    }
 }
 
 .btn--disabled {
+    --btn-bg: var(--color-bg-alt);
+    --btn-text: var(--color-text-muted);
+    border-style: dashed;
     border-color: var(--color-text-muted);
-    background-color: var(--color-bg-surface);
-    color: var(--color-text-muted);
+    box-shadow: none;
     cursor: not-allowed;
     pointer-events: none;
-
-    &::before {
-        display: none;
-    }
 }
