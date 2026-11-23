@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Registro local de cambios de código entre ramas de diseño
+CAMBIOS.md

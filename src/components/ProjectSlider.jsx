@@ -1,38 +1,21 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+
+const AUTOPLAY_MS = 3000;
 
 function ProjectSlider({ images = [] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const timeoutRef = useRef(null);
+    const total = images.length;
 
-    const resetTimeout = () => {
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-        }
-    };
-
+    // Cada cambio de índice reinicia el temporizador, así un clic manual no se pisa con el autoplay
     useEffect(() => {
-        if (images.length <= 1) return;
-        resetTimeout();
-        timeoutRef.current = setTimeout(
-            () =>
-                setCurrentIndex((prevIndex) =>
-                    prevIndex === images.length - 1 ? 0 : prevIndex + 1
-                ),
-            3000
-        );
+        if (total <= 1) return;
+        const timeout = setTimeout(() => setCurrentIndex(prev => (prev + 1) % total), AUTOPLAY_MS);
+        return () => clearTimeout(timeout);
+    }, [currentIndex, total]);
 
-        return () => {
-            resetTimeout();
-        };
-    }, [currentIndex, images.length]);
+    if (total === 0) return null;
 
-    useEffect(() => {
-        setCurrentIndex(0);
-    }, [images.length]);
-
-    if (!images || images.length === 0) return null;
-
-    if (images.length === 1) {
+    if (total === 1) {
         return (
             <div className="featured-carousel-wrapper">
                 <div className="featured-slider-container">
@@ -40,6 +23,8 @@ function ProjectSlider({ images = [] }) {
                         className="featured-slider-item"
                         src={images[0].src}
                         alt={images[0].alt || "Captura del proyecto"}
+                        width={1600}
+                        height={900}
                         loading="lazy"
                     />
                 </div>
@@ -47,13 +32,8 @@ function ProjectSlider({ images = [] }) {
         );
     }
 
-    const prevSlide = () => {
-        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-    };
-
-    const nextSlide = () => {
-        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    };
+    const prevSlide = () => setCurrentIndex(prev => (prev - 1 + total) % total);
+    const nextSlide = () => setCurrentIndex(prev => (prev + 1) % total);
 
     return (
         <div className="featured-carousel-wrapper">
@@ -64,10 +44,12 @@ function ProjectSlider({ images = [] }) {
                 >
                     {images.map((img, index) => (
                         <img
-                            key={img.src || index}
+                            key={img.src}
                             className="featured-slider-item"
                             src={img.src}
                             alt={img.alt || `Captura ${index + 1} del proyecto`}
+                            width={1600}
+                            height={900}
                             loading="lazy"
                         />
                     ))}
@@ -78,12 +60,13 @@ function ProjectSlider({ images = [] }) {
             <button type="button" className="featured-nav-btn next" onClick={nextSlide} aria-label="Imagen siguiente">&#10095;</button>
 
             <div className="featured-dots">
-                {images.map((_, index) => (
+                {images.map((img, index) => (
                     <button
-                        key={index}
+                        key={img.src}
                         type="button"
                         aria-label={`Ir a la imagen ${index + 1}`}
-                        className={`featured-dot ${currentIndex === index ? "active" : ""}`}
+                        aria-current={currentIndex === index}
+                        className={`featured-dot${currentIndex === index ? " active" : ""}`}
                         onClick={() => setCurrentIndex(index)}
                     />
                 ))}

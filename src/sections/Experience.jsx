@@ -1,16 +1,14 @@
 import experienceData from '../data/experience.json'
-import Contacto from '../components/Contacto';
 
 function Experience() {
-    const work = experienceData.work; 
-    const education = experienceData.education; 
+    const { work, education } = experienceData;
 
     return(
         <section className='experience' id="experiences">
-            <article className='experience-card'>
-                <h2>Work Experience</h2>
-                {work.map((w, i) => (
-                    <div className='experience-card-content' key={i}>
+            <article className='experience-card' data-reveal>
+                <h2>Experiencia</h2>
+                {work.map(w => (
+                    <div className='experience-card-content' key={w.id}>
                         <h4>{w.company}</h4>
                         <span>{w.period}</span>
                         <p>{w.position}</p>
@@ -18,17 +16,15 @@ function Experience() {
                     </div>
                 ))}
             </article>
-            <article className='study-card'>
-                <h2>Education</h2>
-                {education.map((e, i) => (
-                    <div className='study-card-content' key={i}>
+            <article className='study-card' data-reveal>
+                <h2>Formación</h2>
+                {education.map(e => (
+                    <div className='study-card-content' key={e.id}>
                         <h4>{e.school}</h4>
                         <span>{e.period}</span>
                         <p>{e.studies}</p>
                     </div>
                 ))}
-
-                <Contacto/>
             </article>
         </section>
     )

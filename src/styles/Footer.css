@@ -21,9 +21,9 @@
     a {
         color: var(--color-text-secondary);
         display: flex;
-        transition: color 0.2s ease;
+        transition: color var(--dur-fast) ease;
 
-        &:hover, &:focus {
+        &:hover, &:focus-visible {
             color: var(--color-accent);
         }
     }

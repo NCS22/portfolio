@@ -1,0 +1,60 @@
+/* Botón con barrido de color al hacer hover. Variantes: --primary, --secondary, --disabled */
+.btn {
+    --btn-color: var(--color-btn-primary-bg);
+    --btn-text-hover: var(--color-btn-primary-text);
+
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    padding: 12px 24px;
+    border: 1px solid var(--btn-color);
+    border-radius: var(--radius-sm);
+    background-color: transparent;
+    color: var(--color-text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color var(--dur-base) ease;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-color: var(--btn-color);
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 0.45s var(--ease-in-out);
+    }
+
+    &:hover, &:focus-visible {
+        color: var(--btn-text-hover);
+    }
+
+    &:hover::before, &:focus-visible::before {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+.btn--secondary {
+    --btn-color: var(--color-btn-secondary-bg);
+    --btn-text-hover: var(--color-btn-secondary-text);
+}
+
+.btn--disabled {
+    border-color: var(--color-text-muted);
+    background-color: var(--color-bg-surface);
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &::before {
+        display: none;
+    }
+}

@@ -1,11 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=Italiana&family=Jost:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+/* Las fuentes se cargan desde index.html (<link>), no con @import */
 
-* {
-    margin: 0; 
-    padding: 0; 
-    scroll-behavior: smooth;
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--space-lg);
+}
+
+img, svg {
+    display: block;
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+button {
+    font: inherit;
+}
+
+/* ==========================================================================
+   TOKENS DEL TEMA
+   Cada diseño (rama design/*) debería cambiar sobre todo este bloque.
+   ========================================================================== */
 :root {
 
     /* Fondos */
@@ -13,11 +38,13 @@
     --color-bg-alt: #211c18;       /* complementario al fondo, para alternar secciones */
     --color-bg-surface: #2a241e;   /* superficie elevada: tarjetas, inputs */
     --color-border: #33302c;       /* bordes y divisores sutiles */
-    --color-bg-comp: #ece5de; 
+    --color-bg-comp: #ece5de;      /* sección en contraste (skills) */
 
     /* Texto */
     --color-text-primary: #f2ede6;    /* blanco roto cálido, no blanco puro */
     --color-text-secondary: #a9a099;  /* gris cálido medio */
+    --color-text-muted: #7d756e;      /* elementos deshabilitados */
+    --color-text-on-accent: #181818;  /* texto sobre fondos de acento */
 
     /* Acento principal — camel/naranja */
     --color-accent: #c17a44;
@@ -27,35 +54,85 @@
     --color-accent-secondary: #5b7c99;
     --color-accent-secondary-hover: #7fa0ba;
 
-    /* Botón principal */
+    /* Botones */
     --color-btn-primary-bg: var(--color-accent);
-    --color-btn-primary-text: #181818;
-    --color-btn-primary-hover: var(--color-accent-hover);
+    --color-btn-primary-text: var(--color-text-on-accent);
+    --color-btn-secondary-bg: var(--color-accent-secondary);
+    --color-btn-secondary-text: var(--color-text-on-accent);
 
-    /* Botón secundario */
-    --color-btn-secondary-bg: transparent;
-    --color-btn-secondary-border: var(--color-accent-secondary);
-    --color-btn-secondary-text: var(--color-accent-secondary-hover);
-    --color-btn-secondary-hover-bg: rgba(91, 124, 153, 0.12);
+    /* Controles del carrusel */
+    --color-control-bg: var(--color-text-primary);
+    --color-control-text: var(--color-bg);
+    --color-dot: var(--color-text-muted);
+
+    /* Foco accesible */
+    --color-focus: var(--color-accent-hover);
 
     /* Familias */
     --font-display: 'Italiana', serif;
-    --font-display-bold: 'Fraunces', serif; 
+    --font-display-bold: 'Fraunces', serif;
     --font-body: 'Jost', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
 
     /* Escala tipográfica */
-    --fs-hero: clamp(2.75rem, 6vw, 5rem);
+    --fs-hero: clamp(2.75rem, 6vw, 4.5rem);
     --fs-h1: clamp(2rem, 4vw, 3rem);
     --fs-h2: clamp(1.5rem, 3vw, 2rem);
     --fs-body: 1rem;
     --fs-small: 0.875rem;
+    --fs-xs: 0.75rem;
 
     /* Line-height */
     --lh-heading: 1.1;
     --lh-body: 1.65;
+
+    /* Espaciado */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 48px;
+    --space-xl: 64px;
+    --section-padding: var(--space-lg);
+
+    /* Radios */
+    --radius-sm: 5px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+
+    /* Sombras */
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    /* Movimiento */
+    --dur-fast: 0.2s;
+    --dur-base: 0.4s;
+    --dur-slow: 0.6s;
+    --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 body {
     background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+/* [data-reveal] lo gestiona useReveal(). La base no anima: cada diseño decide. */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
