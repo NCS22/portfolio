@@ -32,6 +32,12 @@
             "school": "Universidad Complutense de Madrid", 
             "studies": "Grado en Ingeniería de Software",
             "period": "Septiembre 2022 - Junio 2026"
+        },
+        {
+            "id": "master-ia",
+            "school": "Universidad Isabel I",
+            "studies": "Máster en Desarrollo con IA",
+            "period": "Octubre 2026 - Actualidad"
         }
     ]
 }
