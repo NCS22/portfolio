@@ -87,6 +87,9 @@ button {
     --fs-small: 0.875rem;
     --fs-xs: 0.75rem;
 
+    /* Casos destacados: altura fija del panel de pestañas */
+    --featured-panel-height: 340px;
+
     /* Line-height */
     --lh-heading: 0.95;
     --lh-body: 1.6;

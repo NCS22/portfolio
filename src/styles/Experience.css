@@ -1,9 +1,8 @@
+/* Formación arriba (tarjeta amarilla con línea de tiempo horizontal); Experiencia debajo en columnas */
 .experience {
-    display: grid;
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    grid-template-areas: "experience education";
+    display: flex;
+    flex-direction: column;
     gap: var(--space-xl);
-    align-items: start;
     padding: var(--section-padding) var(--gutter);
 }
 
@@ -18,12 +17,9 @@
     }
 }
 
-.experience-card { grid-area: experience; }
-
-/* Formación: una tarjeta amarilla girada */
+/* Formación: tarjeta amarilla, apenas girada al ser tan ancha */
 .study-card {
-    grid-area: education;
-    padding: var(--space-lg) var(--space-md) var(--space-md);
+    padding: var(--space-lg);
     border: var(--border);
     border-radius: var(--radius-lg);
     background-color: var(--color-yellow);
@@ -35,17 +31,15 @@
 }
 
 .study-card[data-reveal].is-revealed {
-    transform: rotate(1.5deg);
+    transform: rotate(-0.6deg);
 }
 
-/* Cada experiencia es una tarjeta con un punto de color que salta en la línea de tiempo */
 .experience-card-content, .study-card-content {
     --dot: var(--color-violet);
 
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-left: 34px;
 
     h4 {
         font-family: var(--font-display);
@@ -86,8 +80,69 @@
     }
 }
 
+/* ---------- Formación: línea de tiempo horizontal discontinua ---------- */
+.study-card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-lg);
+}
+
+.study-card-content {
+    padding-top: 38px;
+
+    p:first-of-type {
+        margin-bottom: 0;
+        color: var(--color-ink);
+    }
+
+    /* Nodo */
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        width: 20px;
+        height: 20px;
+        border: var(--border);
+        border-radius: 50%;
+        background: var(--color-bg-surface);
+        transition: transform var(--dur-base) var(--ease-spring);
+    }
+
+    /* El estudio en curso se pinta de violeta */
+    &:last-child::before {
+        background: var(--color-violet);
+    }
+
+    &:hover::before {
+        transform: scale(1.3);
+    }
+
+    /* Tramo discontinuo hasta el siguiente nodo */
+    &::after {
+        content: '';
+        position: absolute;
+        left: 26px;
+        right: calc(-1 * var(--space-lg) + 6px);
+        top: 9px;
+        border-top: var(--border-width) dashed var(--color-ink);
+    }
+
+    &:last-child::after {
+        display: none;
+    }
+}
+
+/* ---------- Experiencia: pegatinas en columnas ---------- */
+.experience-card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
 .experience-card-content {
-    padding: 22px 24px;
+    padding: 26px 24px 24px;
     border: var(--border);
     border-radius: var(--radius-md);
     background-color: var(--color-bg-surface);
@@ -95,77 +150,66 @@
     transition: transform var(--dur-base) var(--ease-spring), box-shadow var(--dur-base) var(--ease-bounce);
 
     &:hover {
-        transform: translateX(6px) rotate(-0.6deg);
+        transform: translateY(-6px) rotate(-0.8deg);
         box-shadow: var(--shadow-md);
     }
-}
 
-.experience-card-content:nth-of-type(3n + 2) { --dot: var(--color-pink); }
-.experience-card-content:nth-of-type(3n + 3) { --dot: #2f9e44; }
+    &:nth-child(even):hover {
+        transform: translateY(-6px) rotate(0.8deg);
+    }
 
-.study-card-content {
-    margin-left: 30px;
-    padding-bottom: var(--space-sm);
+    /* Chincheta de color en la esquina */
+    &::before {
+        content: '';
+        position: absolute;
+        top: -11px;
+        right: 22px;
+        width: 20px;
+        height: 20px;
+        border: var(--border);
+        border-radius: 50%;
+        background: var(--dot);
+        transition: transform var(--dur-base) var(--ease-spring);
+    }
 
-    p:first-of-type {
-        color: var(--color-ink);
+    &:hover::before {
+        transform: scale(1.3);
     }
 }
 
-.experience-card-content::before, .study-card-content::before {
-    content: '';
-    position: absolute;
-    left: -36px;
-    top: 24px;
-    z-index: 1;
-    width: 18px;
-    height: 18px;
-    border: var(--border);
-    border-radius: 50%;
-    background: var(--dot);
-    transition: transform var(--dur-base) var(--ease-spring);
-}
-
-.study-card-content::before {
-    left: -32px;
-    top: 4px;
-    background: var(--color-bg-surface);
-}
-
-.experience-card-content:hover::before {
-    transform: scale(1.4);
-}
-
-/* Línea de tiempo discontinua */
-.experience-card-content::after, .study-card-content::after {
-    content: '';
-    position: absolute;
-    left: -28px;
-    top: 42px;
-    bottom: calc(-1 * var(--space-md) - 24px);
-    z-index: 0;
-    border-left: var(--border-width) dashed var(--color-ink);
-}
-
-.study-card-content::after {
-    left: -24px;
-    top: 22px;
-    bottom: -6px;
-}
-
-.experience-card-content:last-child::after, .study-card-content:last-child::after {
-    display: none;
-}
+.experience-card-content:nth-child(3n + 2) { --dot: var(--color-pink); }
+.experience-card-content:nth-child(3n + 3) { --dot: #2f9e44; }
 
 @media (max-width: 900px) {
     .experience {
-        grid-template-columns: 1fr;
-        grid-template-areas: "experience" "education";
         gap: var(--space-lg);
         padding-block: var(--space-lg);
     }
 
+    .study-card {
+        padding: var(--space-md);
+    }
+
+    /* En móvil la línea de tiempo de Formación vuelve a ser vertical */
+    .study-card-list {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .study-card-content {
+        padding: 0 0 var(--space-md) 36px;
+
+        &::after {
+            left: 9px;
+            right: auto;
+            top: 26px;
+            bottom: 4px;
+            border-top: none;
+            border-left: var(--border-width) dashed var(--color-ink);
+        }
+    }
+
     .experience-card-content {
-        padding: 18px;
+        padding: 22px 18px 18px;
     }
 }

@@ -140,7 +140,8 @@
 .featured-panel {
     --panel-pad-y: 16px;
 
-    min-height: 240px;
+    /* Altura fija: la tarjeta no cambia de tamaño al cambiar de pestaña */
+    height: var(--featured-panel-height);
     padding: var(--panel-pad-y) 10px var(--panel-pad-y) 22px;
     border: var(--border);
     border-radius: var(--radius-md);
@@ -152,7 +153,7 @@
     white-space: pre-line;
 
     & > * {
-        max-height: calc(46vh - 2 * var(--panel-pad-y));
+        height: 100%;
         overflow-y: auto;
         padding-block: 4px;
         padding-right: 14px;
@@ -247,9 +248,7 @@
 /* Contenedor externo que posiciona los botones y los puntos */
 .featured-carousel-wrapper {
     grid-area: image;
-    position: sticky;
-    top: 110px;
-    align-self: start;
+    align-self: center;
     width: 100%;
     min-width: 0;
     transform: rotate(1.5deg);
@@ -452,19 +451,15 @@
         box-shadow: 8px 8px 0 var(--card-shadow), 8px 8px 0 var(--border-width) var(--color-ink);
     }
 
-    .featured-carousel-wrapper {
-        position: relative;
-        top: auto;
-    }
 
     .featured-nav-btn.prev { left: 8px; }
     .featured-nav-btn.next { right: 8px; }
 
     .featured-panel {
-        min-height: 0;
+        height: auto;
 
         & > * {
-            max-height: none;
+            height: auto;
             overflow-y: visible;
         }
     }
