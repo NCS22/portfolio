@@ -5,6 +5,8 @@ import Skills from "./sections/Skills"
 import Experience from "./sections/Experience"
 import Contacto from "./components/Contacto"
 import Footer from "./components/Footer"
+import Cursor from "./components/Cursor"
+import Ticker from "./components/Ticker"
 import useReveal from "./hooks/useReveal"
 
 import './styles/App.css'
@@ -22,14 +24,17 @@ function App() {
 
   return (
     <>
+      <Cursor/>
+      <NavBar/>
       <div className="page-top" id="top">
-        <NavBar/>
         <Hero/>
       </div>
+      <Ticker tone="lime"/>
       <main>
         <Projects/>
         <Skills/>
         <Experience/>
+        <Ticker tone="pink" reverse/>
         <Contacto/>
       </main>
       <Footer/>

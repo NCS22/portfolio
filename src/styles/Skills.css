@@ -1,77 +1,125 @@
+/* Sección violeta con dos filas de pegatinas que corren en sentidos opuestos */
 .skills {
-    background: var(--color-bg-comp);
-    padding: 48px 0;
     display: flex;
-    flex: 1;
     flex-direction: column;
+    gap: var(--space-lg);
+    padding: var(--section-padding) 0;
+    border-block: var(--border);
+    background: var(--color-bg-comp);
+    overflow: hidden;
 }
 
-.skills-title {
+.skills-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    padding-inline: var(--gutter);
     text-align: center;
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    color: var(--color-accent-secondary);
+}
+
+.skills .skills-title {
+    font-size: var(--fs-h1);
+    color: var(--color-lime);
+    -webkit-text-stroke: 2px var(--color-ink);
+    paint-order: stroke fill;
+    text-shadow: 5px 5px 0 var(--color-ink);
+    transform: rotate(-2deg);
 }
 
 .skills-desc {
-    text-align: center;
+    max-width: 44ch;
     font-family: var(--font-body);
-    font-style: italic;
-    color: var(--color-text-secondary);
-    padding-left: 6px;
-    padding-right: 6px;
-
-    &::before {
-        content: "—";
-        color: var(--color-accent-secondary);
-        font-weight: bold;
-        display: inline-block;
-        width: 1em;
-        margin-right: 0.4em;
-    }
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #ffffff;
 }
 
 .skills-content {
-    padding-top: 24px;
     display: flex;
-    gap: 12px;
-    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 18px;
+    transform: rotate(-2deg);
 }
 
+/* Padding generoso para que las pegatinas no se recorten al girar y crecer en hover;
+   el margen negativo compensa para que las filas sigan juntas */
 .skills-scroll {
-    overflow-x: hidden;
+    overflow: hidden;
+    padding-block: 26px;
+    margin-block: -18px;
 }
 
 .skills-scroll-track {
     display: flex;
-    gap: 48px;
+    gap: 18px;
     width: max-content;
-    animation: marquee 40s linear infinite;
+    animation: marquee 45s linear infinite;
+}
 
-    &:hover {
-        animation-play-state: paused;
-    }
+.skills-scroll-track--reverse {
+    animation-direction: reverse;
+    animation-duration: 55s;
+}
 
+.skills-content:hover .skills-scroll-track {
+    animation-play-state: paused;
 }
 
 @keyframes marquee {
-    0%{
-        transform: translateX(0);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
 
-    100% {
-        transform: translateX(-50%);
+/* Cada skill es una pegatina con icono + nombre */
+.skills-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    padding: 10px 20px 10px 12px;
+    border: var(--border);
+    border-radius: var(--radius-pill);
+    background-color: var(--color-bg);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--dur-base) var(--ease-spring), background-color var(--dur-fast) ease;
+
+    &:nth-child(5n + 2) { background-color: var(--color-lime); }
+    &:nth-child(5n + 4) { background-color: var(--color-yellow); }
+
+    &:hover {
+        transform: rotate(-8deg) scale(1.12);
+        background-color: var(--color-pink);
     }
 }
 
-.skills-icon {
-    height: 64px;
-    width: auto;
-    flex-shrink: 0;
-    filter: grayscale(1) opacity(0.6);
-    transition: filter var(--dur-fast) ease;
+.skills-scroll-track--reverse .skills-chip:nth-child(5n + 1) { background-color: #ffc2dc; }
 
-    &:hover {
-        filter: grayscale(0) opacity(1);
+.skills-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.skills-chip-name {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--color-ink);
+}
+
+@media (max-width: 900px) {
+    .skills {
+        padding-block: var(--space-lg);
+    }
+
+    .skills-chip {
+        padding: 8px 16px 8px 10px;
+    }
+
+    .skills-icon {
+        width: 28px;
+        height: 28px;
     }
 }
