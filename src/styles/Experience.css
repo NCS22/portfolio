@@ -1,17 +1,15 @@
+/* Formación arriba como línea de tiempo horizontal; Experiencia debajo, a todo el ancho y en columnas */
 .experience {
-    padding: 48px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "experience education";
-    padding-bottom: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    padding: 48px 68px var(--space-lg);
 }
 
 .experience-card, .study-card {
-    margin-left: 20px;
-    margin-right: 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: var(--space-md);
 
     h2 {
         color: var(--color-text-primary);
@@ -20,13 +18,7 @@
     }
 }
 
-.experience-card { grid-area: experience; }
-.study-card { grid-area: education; }
-
 .experience-card-content, .study-card-content {
-    position: relative;
-    padding-left: 28px;
-    padding-bottom: 32px;
     display: flex;
     flex-direction: column;
 
@@ -57,38 +49,82 @@
     }
 }
 
-.experience-card-content::before, .study-card-content::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 6px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--color-accent);
-    z-index: 1;
+/* ---------- Formación: línea de tiempo horizontal ---------- */
+.study-card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-md);
 }
 
-.experience-card-content::after, .study-card-content::after{
-    content: '';
-    position: absolute;
-    left: 4px;
-    top: 6px;
-    bottom: 0;
-    width: 2px;
-    background: var(--color-accent);
-    z-index: 0;
+.study-card-content {
+    position: relative;
+    padding-top: 28px;
+
+    /* Nodo */
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--color-accent);
+    }
+
+    /* Tramo hasta el siguiente nodo (cruza el hueco entre columnas) */
+    &::after {
+        content: '';
+        position: absolute;
+        left: 10px;
+        right: calc(-1 * var(--space-md));
+        top: 4px;
+        height: 2px;
+        background: var(--color-accent);
+    }
+
+    &:last-child::after {
+        display: none;
+    }
 }
 
-.experience-card-content:last-child::after, .study-card-content:last-child::after {
-    display: none;
+/* ---------- Experiencia: tarjetas en columnas ---------- */
+.experience-card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-md);
+}
+
+.experience-card-content {
+    padding: 24px;
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    background-color: var(--color-bg-surface);
 }
 
 @media (max-width: 900px) {
     .experience {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    /* En móvil la línea de tiempo de Formación vuelve a ser vertical */
+    .study-card-list {
         grid-template-columns: 1fr;
-        grid-template-areas: "experience" "education";
-        align-items: center;
-        gap: 8px;
+        gap: 0;
+    }
+
+    .study-card-content {
+        padding: 0 0 var(--space-md) 28px;
+
+        &::after {
+            left: 4px;
+            right: auto;
+            top: 10px;
+            bottom: 0;
+            width: 2px;
+            height: auto;
+        }
     }
 }
