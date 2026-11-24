@@ -248,6 +248,7 @@
 /* Contenedor externo que posiciona los botones y los puntos */
 .featured-carousel-wrapper {
     grid-area: image;
+    position: relative;
     align-self: center;
     width: 100%;
     min-width: 0;
